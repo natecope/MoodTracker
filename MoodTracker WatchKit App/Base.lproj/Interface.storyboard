@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MoodTracker_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <imageView alignment="center" image="rage0" id="vQj-wM-jBU"/>
+                        <separator alignment="left" id="97I-8V-LJX"/>
+                        <label alignment="center" text="Current Mood:" id="IA3-dV-2By"/>
+                        <slider width="1" alignment="left" maximum="4" steps="4" id="cV9-3e-6BI">
+                            <connections>
+                                <action selector="moodSliderChanged:" destination="AgC-eL-Hgc" id="87v-Wy-Lkc"/>
+                            </connections>
+                        </slider>
+                        <group width="1" alignment="left" id="C3V-s4-uzO">
+                            <items>
+                                <label alignment="left" text="Good" id="WLx-Ni-ife"/>
+                                <label alignment="right" text="Rage" id="7Ac-dz-Fqw"/>
+                            </items>
+                        </group>
+                        <switch width="1" alignment="left" value="YES" title="Offer Advice" id="UsX-DX-A3G">
+                            <connections>
+                                <action selector="adviceSwitchChanged:" destination="AgC-eL-Hgc" id="yQN-J8-CRb"/>
+                            </connections>
+                        </switch>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Record Mood" id="JRU-TB-xYv">
+                            <connections>
+                                <segue destination="oP7-s5-CF4" kind="push" identifier="RecordMoodSegue" id="Jb3-0W-tS2"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Halp" id="9ub-b3-Jwx">
+                            <connections>
+                                <action selector="halpButtonTapped" destination="AgC-eL-Hgc" id="ecD-Fb-5qO"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="moodImage" destination="vQj-wM-jBU" id="F9E-zw-Xdd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="543" y="554.25"/>
+        </scene>
+        <!--MoodDetailsController-->
+        <scene sceneID="bsN-e1-fdK">
+            <objects>
+                <controller identifier="MoodDetailsController" id="oP7-s5-CF4" customClass="MoodDetailsController" customModule="MoodTracker_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="d1q-mB-bPa">
+                            <items>
+                                <imageView width="0.5" widthAdjustment="-4" alignment="left" image="rage0" contentMode="scaleAspectFit" id="08P-qU-B7e"/>
+                                <separator alignment="left" id="5DN-tj-B5Y"/>
+                                <label width="0.5" alignment="left" verticalAlignment="center" id="XFz-nC-HhI"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="enq-Ku-dU4">
+                            <items>
+                                <label width="1" alignment="left" numberOfLines="0" id="Dh5-hc-V2g"/>
+                                <separator alignment="left" id="OfP-U8-txz"/>
+                                <label width="1" alignment="left" numberOfLines="0" id="yRf-Ya-MAq"/>
+                            </items>
+                            <edgeInsets key="margins" left="4" right="4" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="moodAdviceLabel" destination="yRf-Ya-MAq" id="WIf-pf-lfG"/>
+                        <outlet property="moodDescriptionLabel" destination="Dh5-hc-V2g" id="7UB-tb-hx1"/>
+                        <outlet property="moodImage" destination="08P-qU-B7e" id="ai4-mu-TNs"/>
+                        <outlet property="moodNameLabel" destination="XFz-nC-HhI" id="VQf-vk-9YX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="777" y="553.75"/>
+        </scene>
+        <!--HelpController-->
+        <scene sceneID="qYN-Wk-rxI">
+            <objects>
+                <controller identifier="HelpController" id="NZX-cI-IeA" customClass="HelpController" customModule="MoodTracker_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="Y U NEED HALP!?" id="MRH-aV-tkk"/>
+                    </items>
+                    <connections>
+                        <outlet property="helpText" destination="MRH-aV-tkk" id="c6q-SI-jvp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="973" y="560"/>
+        </scene>
+    </scenes>
+</document>
